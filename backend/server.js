@@ -7,6 +7,12 @@ const { Server } = require("socket.io");
 
 const connectDB = require("./config/db");
 const authRoutes = require("./routes/authRoutes");
+const expoRoutes = require("./routes/expoRoutes");
+const boothRoutes = require("./routes/boothRoutes");
+const applicationRoutes = require("./routes/applicationRoutes");
+const sessionRoutes = require("./routes/sessionRoutes");
+const messageRoutes = require("./routes/messageRoutes");
+const feedbackRoutes = require("./routes/feedbackRoutes");
 
 const app = express();
 const server = http.createServer(app);
@@ -32,8 +38,14 @@ app.get("/api/health", (req, res) => {
   });
 });
 
-// auth routes are mounted under /api/auth
+// API routes
 app.use("/api/auth", authRoutes);
+app.use("/api/expos", expoRoutes);
+app.use("/api/booths", boothRoutes);
+app.use("/api/applications", applicationRoutes);
+app.use("/api/sessions", sessionRoutes);
+app.use("/api/messages", messageRoutes);
+app.use("/api/feedback", feedbackRoutes);
 
 app.use((req, res) => {
   res.status(404).json({ message: `Route not found: ${req.method} ${req.originalUrl}` });
