@@ -6,6 +6,7 @@ const cors = require("cors");
 const { Server } = require("socket.io");
 
 const connectDB = require("./config/db");
+const authRoutes = require("./routes/authRoutes");
 
 const app = express();
 const server = http.createServer(app);
@@ -31,7 +32,8 @@ app.get("/api/health", (req, res) => {
   });
 });
 
-// resource routes get mounted here as they are built
+// auth routes are mounted under /api/auth
+app.use("/api/auth", authRoutes);
 
 app.use((req, res) => {
   res.status(404).json({ message: `Route not found: ${req.method} ${req.originalUrl}` });
