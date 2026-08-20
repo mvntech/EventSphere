@@ -1,6 +1,12 @@
+import { RouterProvider } from 'react-router-dom'
+import { AuthProvider } from '@/context/AuthContext'
+import router from '@/routes/router'
+
 function App() {
   return (
-    <h1>Welcome to EventSphere!</h1>
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   )
 }
 
