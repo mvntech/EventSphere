@@ -1,0 +1,57 @@
+# 1. dependencies
+node_modules/
+**/node_modules/
+jspm_packages/
+.pnpm-store/
+
+# 2. environment variables & secrets
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.env
+
+# 3. production builds
+build/
+dist/
+out/
+.next/
+
+# 4. logs and debugging files
+*.log
+logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# 5. editor and IDE settings
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+*.swo
+
+# 6. idagnostic and test coverage data
+coverage/
+.nyc_output
+
+# 7. operating system cache files
+.DS_Store
+.DS_Store?
+._*
+Thumbs.db
+ehthumbs.db
+
+# 8. local/temporary run files
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# agents
+CLAUDE.md
